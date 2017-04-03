@@ -136,9 +136,9 @@ alt=''
 for response in responses:
     text+="<img src=\""+response['url']+"\"alt=\""+alt+"\" /> "+' '
     if response['title'] in comments:
-        text+= "<strong>" + comments[response['title']]
+        text+= "<strong>" + comments[response['title']] + "</strong>"
 
-text+="<br> <br><a href=\"https://instagram.com/"+handle+"\">Follow @"+handle+" on Instagram.</a> <br>"
+text+="<br><a href=\"https://instagram.com/"+handle+"\">Follow @"+handle+" on Instagram.</a><br>"
 post = WordPressPost()
 post.id = wp.call(NewPost(post))
 post.title=title
