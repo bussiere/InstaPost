@@ -1,4 +1,4 @@
-import os, os.path, json, time, configuration, shutil, random
+import os, os.path, time, configuration, shutil
 from PIL import Image, ImageDraw, ImageFont
 from instaLooter import InstaLooter
 from wordpress_xmlrpc import *
