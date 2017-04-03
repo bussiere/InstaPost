@@ -8,16 +8,16 @@ You can preview and comment every image.
 -PIL (or pillow): for Image manipulation  
 -wordpress_xmlrpc: https://python-wordpress-xmlrpc.readthedocs.io for Wordpress posting  
 -numpy: for Ascii conversion  
-(All available in PIP -do NOT install as root-)
+(All available in PIP3 -do NOT install as root-)
 
 ## Usage:
 ```
-python instaPost  
+python3 instaPost  
 ```
 
 or
 
 ```
-python instaPost -t  
+python3 instaPost -t  
 ```
 (This enables a text based image preview, for SSH users and such)
