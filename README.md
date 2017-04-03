@@ -8,9 +8,13 @@ PIL (or pillow): for Image manipulation
 wordpress_xmlrpc: for Wordpress posting
 
 ## Usage:
-python instaPost
+```
+python instaPost  
+```
 
 or
 
-python instaPost -t
+```
+python instaPost -t  
+```
 (This enables a text based image preview, for SSH users and such)
