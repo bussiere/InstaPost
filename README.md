@@ -3,9 +3,12 @@ Loots an arbitrary quantity of pictures from an Instagram handle and posts it to
 You can preview and comment every image.
 
 ## Dependencies
+-Python 3  
 -instaLooter: https://github.com/althonos/InstaLooter for downloading Images  
 -PIL (or pillow): for Image manipulation  
--wordpress_xmlrpc: for Wordpress posting  
+-wordpress_xmlrpc: https://python-wordpress-xmlrpc.readthedocs.io for Wordpress posting  
+-numpy: for Ascii conversion  
+(All available in PIP -do NOT install as root-)
 
 ## Usage:
 ```
