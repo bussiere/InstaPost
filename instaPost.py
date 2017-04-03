@@ -1,10 +1,9 @@
-import os, os.path, time, configuration, shutil
+import os, os.path, time, configuration, shutil, sys, numpy
 from PIL import Image, ImageDraw, ImageFont
 from instaLooter import InstaLooter
 from wordpress_xmlrpc import *
 from wordpress_xmlrpc.methods import media, posts
 from wordpress_xmlrpc.methods.posts import GetPosts, NewPost
-import sys; from PIL import Image; import numpy as np
 
 image_as_text=False
 
@@ -15,17 +14,17 @@ if len(sys.argv)==2:
 #For SSH users, you can print the image to review in ASCII form
 #For testing purposes only
 def print_ascii(image):
-    chars = np.asarray(list(' .,:;irsXA253hMHGS#9B&@'))
+    chars = numpy.asarray(list(' .,:;irsXA253hMHGS#9B&@'))
     escala, luminosidad = (1/10), 2
     S = (round(image.size[0]*escala*(7.0/4.0)),round(image.size[1]*escala))
-    image = np.sum(np.asarray(image.resize(S)),axis=2)
+    image = numpy.sum(numpy.asarray(image.resize(S)),axis=2)
     image -= image.min()
     image = (1.0-image/image.max())**luminosidad*(chars.size-1)
     os.system('clear')
     print( "\n".join( ("".join(r) for r in chars[image.astype(int)]) ) )
 
-def watermark(location,text):
-    image = Image.open(location).convert('RGBA')
+def watermark(image_file,text):
+    image = Image.open(image_file).convert('RGBA')
     width, height = image.size
     draw = ImageDraw.Draw(image)
     rect = Image.new('RGBA', image.size, (255,255,255,0))
@@ -46,9 +45,9 @@ def watermark(location,text):
     draw.rectangle(((x, y),(x+textwidth,y+textheight)), fill=(0, 0, 0, 100))
     draw.text((x, y), text, font=font)
     out = Image.alpha_composite(image, rect)
-    out.save(location)
+    out.save(image_file)
 
-handle = input('Enter a valid Instagram handle (no @): '))
+handle = input('Enter a valid Instagram handle (no @): ')
 
 while True:
     try:
